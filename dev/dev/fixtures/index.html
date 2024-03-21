@@ -742,8 +742,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pdm.pytest.LocalFileAdapter" class="md-nav__link">
-    LocalFileAdapter
+  <a href="#pdm.pytest.LocalIndexTransport" class="md-nav__link">
+    LocalIndexTransport
   </a>
   
 </li>
@@ -1055,8 +1055,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pdm.pytest.LocalFileAdapter" class="md-nav__link">
-    LocalFileAdapter
+  <a href="#pdm.pytest.LocalIndexTransport" class="md-nav__link">
+    LocalIndexTransport
   </a>
   
 </li>
@@ -1327,7 +1327,7 @@ You can do so in your root <code>conftest.py</code>:</p>
 
 
 <h2 id="pdm.pytest.IndexOverrides" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">IndexOverrides</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></code>
+<code class="highlight language-python"><span class="n">IndexOverrides</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]</span></code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
@@ -1407,19 +1407,19 @@ You can do so in your root <code>conftest.py</code>:</p>
 
 
 
-<h2 id="pdm.pytest.LocalFileAdapter" class="doc doc-heading">
-        <code>LocalFileAdapter</code>
+<h2 id="pdm.pytest.LocalIndexTransport" class="doc doc-heading">
+        <code>LocalIndexTransport</code>
 
 
-<a href="#pdm.pytest.LocalFileAdapter" class="headerlink" title="Permanent link">#</a></h2>
+<a href="#pdm.pytest.LocalIndexTransport" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code>requests.<span title="requests.adapters">adapters</span>.<span title="requests.adapters.BaseAdapter">BaseAdapter</span></code></p>
+        Bases: <code>httpx.<span title="httpx.BaseTransport">BaseTransport</span></code></p>
 
   
-      <p>A local file adapter for request.</p>
+      <p>A local file transport for HTTPX.</p>
 <p>Allows to mock some HTTP requests with some local files</p>
 
 
@@ -2062,7 +2062,7 @@ You can do so in your root <code>conftest.py</code>:</p>
 
 
 <h2 id="pdm.pytest.project_no_init" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">project_no_init</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">,</span> <span class="n">mocker</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">pdm_session</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">,</span> <span class="n">build_env</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">project_no_init</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">,</span> <span class="n">mocker</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">build_test_session</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">,</span> <span class="n">build_env</span><span class="p">)</span></code>
 
 <a href="#pdm.pytest.project_no_init" class="headerlink" title="Permanent link">#</a></h2>
 

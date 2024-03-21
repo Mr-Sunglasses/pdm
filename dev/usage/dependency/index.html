@@ -593,6 +593,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exclude-packages-newer-than-specific-date" class="md-nav__link">
+    Exclude packages newer than specific date
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1212,6 +1219,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#exclude-packages-newer-than-specific-date" class="md-nav__link">
+    Exclude packages newer than specific date
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1706,6 +1720,18 @@ For example, <code>flask==2.0.0</code> requires <code>werkzeug&gt;=2.0</code>, b
 </div>
 <p>Previously, the <code>pdm lock</code> command would record package metadata as it is. When installing, PDM would start from the top requirements and traverse down to the leaf node of the dependency tree. It would then evaluate any marker it encounters against the current environment. If a marker is not satisfied, the package would be discarded. In other words, we need an additional "resolution" step in installation.</p>
 <p>When the <code>inherit_metadata</code> strategy is enabled, PDM will inherit and merge environment markers from a package's ancestors. These markers are then encoded in the lockfile during locking, resulting in faster installations. This has been enabled by default from version <code>2.11.0</code>, to disable this strategy in the config, use <code>pdm config strategy.inherit_metadata false</code>.</p>
+<h3 id="exclude-packages-newer-than-specific-date">Exclude packages newer than specific date<a class="headerlink" href="#exclude-packages-newer-than-specific-date" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.13.0</p>
+</div>
+<p>You can exclude packages that are newer than a specified date by passing the <code>--exclude-newer</code> option to <code>pdm lock</code>. This is useful when you want to lock the dependencies to a specific date, for example, to ensure reproducibility of the build.</p>
+<p>The date may be specified as a RFC 3339 timestamp (e.g., <code>2006-12-02T02:07:43Z</code>) or UTC date in the same format (e.g., <code>2006-12-02</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>--exclude-newer<span class="w"> </span><span class="m">2024</span>-01-01
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The package index must support the <code>upload-time</code> field as specified in <a href="https://peps.python.org/pep-0700/">PEP 700</a>. If the field is not present for a given distribution, the distribution will be treated as unavailable.</p>
+</div>
 <h2 id="show-what-packages-are-installed">Show what packages are installed<a class="headerlink" href="#show-what-packages-are-installed" title="Permanent link">#</a></h2>
 <p>Similar to <code>pip list</code>, you can list all packages installed in the packages directory:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>list

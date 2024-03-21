@@ -1487,6 +1487,7 @@
 <li><code>-c</code>, <code>--config</code>: Specify another config file path [env var: <code>PDM_CONFIG_FILE</code>] </li>
 <li><code>-v</code>, <code>--verbose</code>: Use <code>-v</code> for detailed output and <code>-vv</code> for more detailed</li>
 <li><code>-q</code>, <code>--quiet</code>: Suppress output</li>
+<li><code>--no-cache</code>: Disable the cache for the current command. [env var: <code>PDM_NO_CACHE</code>]</li>
 <li><code>-I</code>, <code>--ignore-python</code>: Ignore the Python path saved in<code>.pdm-python</code>. [env var: <code>PDM_IGNORE_SAVED_PYTHON</code>]</li>
 <li><code>--pep582</code> <code>SHELL</code>: Print the command line to be eval'd by the shell</li>
 </ul>
@@ -1841,6 +1842,7 @@
 <li><code>--check</code>: Check if the lock file is up to date and quit</li>
 <li><code>--update-reuse</code>: Reuse pinned versions already present in lock file if possible (default: <code>all</code>)</li>
 <li><code>--update-reuse-installed</code>: Reuse installed packages if possible</li>
+<li><code>--exclude-newer</code>: Exclude packages newer than the given UTC date in format <code>YYYY-MM-DD[THH:MM:SSZ]</code></li>
 </ul>
 <p>Lock Strategy:</p>
 <ul>
