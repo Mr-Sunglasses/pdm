@@ -537,6 +537,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#list-outdated-packages-and-the-latest-versions" class="md-nav__link">
+    List outdated packages and the latest versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-the-packages-pinned-in-lock-file" class="md-nav__link">
     Install the packages pinned in lock file
   </a>
@@ -1163,6 +1170,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#list-outdated-packages-and-the-latest-versions" class="md-nav__link">
+    List outdated packages and the latest versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-the-packages-pinned-in-lock-file" class="md-nav__link">
     Install the packages pinned in lock file
   </a>
@@ -1554,6 +1568,16 @@ pdm<span class="w"> </span>remove<span class="w"> </span>requests
 pdm<span class="w"> </span>remove<span class="w"> </span>-G<span class="w"> </span>web<span class="w"> </span>h11
 <span class="c1"># Remove pytest-cov from the `test` group of dev-dependencies</span>
 pdm<span class="w"> </span>remove<span class="w"> </span>-dG<span class="w"> </span><span class="nb">test</span><span class="w"> </span>pytest-cov
+</code></pre></div></td></tr></table></div>
+<h2 id="list-outdated-packages-and-the-latest-versions">List outdated packages and the latest versions<a class="headerlink" href="#list-outdated-packages-and-the-latest-versions" title="Permanent link">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.13.0</p>
+</div>
+<p>To list outdated packages and the latest versions:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>outdated
+</code></pre></div></td></tr></table></div>
+<p>You can pass glob patterns to filter the packages to show:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>outdated<span class="w"> </span>requests*<span class="w"> </span>flask*
 </code></pre></div></td></tr></table></div>
 <h2 id="install-the-packages-pinned-in-lock-file">Install the packages pinned in lock file<a class="headerlink" href="#install-the-packages-pinned-in-lock-file" title="Permanent link">#</a></h2>
 <p>There are a few similar commands to do this job with slight differences:</p>

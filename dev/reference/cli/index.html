@@ -770,6 +770,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#outdated" class="md-nav__link">
+    outdated
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#publish" class="md-nav__link">
     publish
   </a>
@@ -1264,6 +1271,13 @@
           <li class="md-nav__item">
   <a href="#lock" class="md-nav__link">
     lock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outdated" class="md-nav__link">
+    outdated
   </a>
   
 </li>
@@ -1838,7 +1852,7 @@
 <li><code>--no-isolation</code>: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used.</li>
 <li><code>--config-setting</code>, <code>-C</code>: Pass options to the builder. options with a value must be specified after "=": <code>--config-setting=key(=value)</code> or <code>-Ckey(=value)</code></li>
 <li><code>-k</code>, <code>--skip</code>: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use<code>:all</code> to skip all hooks. Use<code>:pre</code> and<code>:post</code> to skip all pre or post hooks.</li>
-<li><code>--refresh</code>: Don't update pinned versions, only refresh the lock file</li>
+<li><code>--refresh</code>: Refresh the content hash and file hashes in the lock file</li>
 <li><code>--check</code>: Check if the lock file is up to date and quit</li>
 <li><code>--update-reuse</code>: Reuse pinned versions already present in lock file if possible (default: <code>all</code>)</li>
 <li><code>--update-reuse-installed</code>: Reuse installed packages if possible</li>
@@ -1858,6 +1872,23 @@
 <li><code>--no-default</code>: Don't include dependencies from the default group (default: <code>False</code>)</li>
 <li><code>-d</code>, <code>--dev</code>: Select dev dependencies</li>
 <li><code>--prod</code>, <code>--production</code>: Unselect dev dependencies (default: <code>True</code>)</li>
+</ul>
+<h3 id="outdated">outdated<a class="headerlink" href="#outdated" title="Permanent link">#</a></h3>
+<blockquote>
+<p>Check for outdated packages and list the latest versions.</p>
+</blockquote>
+<p>Positional Arguments:</p>
+<ul>
+<li><code>patterns</code>: The packages to check</li>
+</ul>
+<p>Options:</p>
+<ul>
+<li><code>-h</code>, <code>--help</code>: Show this help message and exit.</li>
+<li><code>-v</code>, <code>--verbose</code>: Use <code>-v</code> for detailed output and <code>-vv</code> for more detailed</li>
+<li><code>-q</code>, <code>--quiet</code>: Suppress output</li>
+<li><code>-g</code>, <code>--global</code>: Use the global project, supply the project root with <code>-p</code> option</li>
+<li><code>-p</code>, <code>--project</code>: Specify another path as the project root, which changes the base of<code>pyproject.toml</code> and <code>__pypackages__</code> [env var: <code>PDM_PROJECT</code>]</li>
+<li><code>--json</code>: Output in JSON format (default: <code>table</code>)</li>
 </ul>
 <h3 id="publish">publish<a class="headerlink" href="#publish" title="Permanent link">#</a></h3>
 <blockquote>
