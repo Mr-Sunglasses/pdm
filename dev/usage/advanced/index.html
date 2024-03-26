@@ -1206,37 +1206,31 @@ and then copy this folder into the final stage, adding it to <code>PYTHONPATH</c
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># build stage</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.8</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">ARG</span><span class="w"> </span><span class="nv">PYTHON_BASE</span><span class="o">=</span><span class="m">3</span>.10-slim
+<span class="c"># build stage</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:$PYTHON_BASE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
 
 <span class="c"># install PDM</span>
-<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
-<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pdm
-
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pdm
+<span class="c"># disable update check</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">PDM_CHECK_UPDATE</span><span class="o">=</span><span class="nb">false</span>
 <span class="c"># copy files</span>
 <span class="k">COPY</span><span class="w"> </span>pyproject.toml<span class="w"> </span>pdm.lock<span class="w"> </span>README.md<span class="w"> </span>/project/
 <span class="k">COPY</span><span class="w"> </span>src/<span class="w"> </span>/project/src
 
 <span class="c"># install dependencies and project into the local packages directory</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/project</span>
-<span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>__pypackages__<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pdm<span class="w"> </span>sync<span class="w"> </span>--prod<span class="w"> </span>--no-editable
-
+<span class="k">RUN</span><span class="w"> </span>pdm<span class="w"> </span>install<span class="w"> </span>--check<span class="w"> </span>--prod<span class="w"> </span>--no-editable
 
 <span class="c"># run stage</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.8</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:$PYTHON_BASE</span>
 
 <span class="c"># retrieve packages from build stage</span>
-<span class="k">ENV</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>/project/pkgs
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/project/__pypackages__/3.8/lib<span class="w"> </span>/project/pkgs
-
-<span class="c"># retrieve executables</span>
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/project/__pypackages__/3.8/bin/*<span class="w"> </span>/bin/
-
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/project/.venv/<span class="w"> </span>/project/.venv
+<span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/project/.venv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 <span class="c"># set command/entrypoint, adapt to fit your needs</span>
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-m&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;project&quot;</span><span class="p">]</span>
+<span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>/project/src
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/__main__.py&quot;</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="use-pdm-to-manage-a-monorepo">Use PDM to manage a monorepo<a class="headerlink" href="#use-pdm-to-manage-a-monorepo" title="Permanent link">#</a></h2>
 <p>With PDM, you can have multiple sub-packages within a single project, each with its own <code>pyproject.toml</code> file. And you can create only one <code>pdm.lock</code> file to lock all dependencies. The sub-packages can have each other as their dependencies. To achieve this, follow these steps:</p>
