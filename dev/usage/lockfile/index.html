@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../pep582/">
+        <link rel="prev" href="../dependency/">
       
       
-        <link rel="next" href="../../reference/pep621/">
+        <link rel="next" href="../publish/">
       
       
       <link rel="icon" href="../../assets/logo.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Create Project From a Template - PDM</title>
+        <title>Lock file - PDM</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-project-from-a-template" class="md-skip">
+        <a href="#lock-file" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +137,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Create Project From a Template
+              Lock file
             
           </span>
         </div>
@@ -466,10 +466,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../lockfile/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lock file
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -478,6 +498,158 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-packages-pinned-in-lock-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the packages pinned in lock file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashes-in-the-lock-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashes in the lock file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specify-another-lock-file-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specify another lock file to use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-to-not-write-lock-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option to not write lock file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lock-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lock strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lock strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static URLs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-minimal-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct minimal versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherit-the-metadata-from-parents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inherit the metadata from parents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-packages-newer-than-specific-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude packages newer than specific date
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-acceptable-format-for-locking-or-installing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set acceptable format for locking or installing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allow-prerelease-versions-to-be-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow prerelease versions to be installed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solve-the-locking-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solve the locking failure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-locked-packages-to-alternative-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export locked packages to alternative formats
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -634,30 +806,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Create Project From a Template
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -666,62 +818,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contribute-a-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contribute a template
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements-for-a-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements for a template
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-name-replacement" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project name replacement
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-other-project-generators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use other project generators
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1081,36 +1177,132 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contribute-a-template" class="md-nav__link">
+  <a href="#install-the-packages-pinned-in-lock-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Contribute a template
+      Install the packages pinned in lock file
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements-for-a-template" class="md-nav__link">
+  <a href="#hashes-in-the-lock-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements for a template
+      Hashes in the lock file
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-name-replacement" class="md-nav__link">
+  <a href="#specify-another-lock-file-to-use" class="md-nav__link">
     <span class="md-ellipsis">
-      Project name replacement
+      Specify another lock file to use
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-other-project-generators" class="md-nav__link">
+  <a href="#option-to-not-write-lock-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Use other project generators
+      Option to not write lock file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lock-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lock strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lock strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static URLs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-minimal-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct minimal versions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherit-the-metadata-from-parents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inherit the metadata from parents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-packages-newer-than-specific-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclude packages newer than specific date
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-acceptable-format-for-locking-or-installing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set acceptable format for locking or installing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allow-prerelease-versions-to-be-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow prerelease versions to be installed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solve-the-locking-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solve the locking failure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-locked-packages-to-alternative-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export locked packages to alternative formats
     </span>
   </a>
   
@@ -1134,44 +1326,188 @@
   
 
 
-<h1 id="create-project-from-a-template">Create Project From a Template<a class="headerlink" href="#create-project-from-a-template" title="Permanent link">#</a></h1>
-<p>Similar to <code>yarn create</code> and <code>npm create</code>, PDM also supports initializing or creating a project from a template.
-The template is given as a positional argument of <code>pdm init</code>, in one of the following forms:</p>
+<h1 id="lock-file">Lock file<a class="headerlink" href="#lock-file" title="Permanent link">#</a></h1>
+<p>PDM installs packages exclusively from the existing lock file named <code>pdm.lock</code>. This file serves as the sole source of truth for installing dependencies. The lock file contains essential information such as:</p>
 <ul>
-<li><code>pdm init django</code> - Initialize the project from the template <code>https://github.com/pdm-project/template-django</code></li>
-<li><code>pdm init https://github.com/frostming/pdm-template-django</code> - Initialize the project from a Git URL. Both HTTPS and SSH URL are acceptable.</li>
-<li><code>pdm init django@v2</code> - To check out the specific branch or tag. Full Git URL also supports it.</li>
-<li><code>pdm init /path/to/template</code> - Initialize the project from a template directory on local filesystem.</li>
-<li><code>pdm init minimal</code> - Initialize with the builtin "minimal" template, that only generates a <code>pyproject.toml</code>.</li>
+<li>All packages and their versions</li>
+<li>The file names and hashes of the packages</li>
+<li>Optionally, the origin URLs to download the packages (See also: <a href="#static-urls">Static URLs</a>)</li>
+<li>The dependencies and markers of each package (See also: <a href="#inherit-the-metadata-from-parents">Inherit the metadata from parents</a>)</li>
 </ul>
-<p>And <code>pdm init</code> will use the default template built in.</p>
-<p>The project will be initialized at the current directory, existing files with the same name will be overwritten. You can also use the <code>-p &lt;path&gt;</code> option to create a project at a new path.</p>
-<h2 id="contribute-a-template">Contribute a template<a class="headerlink" href="#contribute-a-template" title="Permanent link">#</a></h2>
-<p>According to the first form of the template argument, <code>pdm init &lt;name&gt;</code> will refer to the template repository located at <code>https://github.com/pdm-project/template-&lt;name&gt;</code>. To contribute a template, you can create a template repository and establish a request to transfer the
-ownership to <code>pdm-project</code> organization(it can be found at the bottom of the repository settings page). The administrators of the organization will review the request and complete the subsequent steps. You will be added as the repository maintainer if the transfer is accepted.</p>
-<h2 id="requirements-for-a-template">Requirements for a template<a class="headerlink" href="#requirements-for-a-template" title="Permanent link">#</a></h2>
-<p>A template repository must be a pyproject-based project, which contains a <code>pyproject.toml</code> file with PEP-621 compliant metadata.
-No other special config files are required.</p>
-<h2 id="project-name-replacement">Project name replacement<a class="headerlink" href="#project-name-replacement" title="Permanent link">#</a></h2>
-<p>On initialization, the project name in the template will be replaced by the name of the new project. This is done by a recursive full-text search and replace. The import name, which is derived from the project name by replacing all non-alphanumeric characters with underscores and lowercasing, will also be replaced in the same way.</p>
-<p>For example, if the project name is <code>foo-project</code> in the template and you want to initialize a new project named <code>bar-project</code>, the following replacements will be made:</p>
+<p>To create or overwrite the lock file, run <a href="../../reference/cli/#lock"><code>pdm lock</code></a>, and it supports the same <a href="../dependency/#about-update-strategy">update strategies</a> as <a href="../../reference/cli/#add"><code>pdm add</code></a>. In addition, the <a href="../../reference/cli/#install"><code>pdm install</code></a> and <a href="../../reference/cli/#add"><code>pdm add</code></a> commands will also automatically create the <code>pdm.lock</code> file.</p>
+<details class="note">
+<summary>Should I include <code>pdm.lock</code> in version control?</summary>
+<p>It depends. If your goal is to make CI use the same dependency versions as local development and avoid unexpected failures, you should include the <code>pdm.lock</code> file to version control. Otherwise, if your project is a library and you want CI to the installation on user site to ensure that the current version on PyPI doesn't break anything, then do not submit the <code>pdm.lock</code> file.</p>
+</details>
+<h2 id="install-the-packages-pinned-in-lock-file">Install the packages pinned in lock file<a class="headerlink" href="#install-the-packages-pinned-in-lock-file" title="Permanent link">#</a></h2>
+<p>There are a few similar commands to do this job with slight differences:</p>
 <ul>
-<li><code>foo-project</code> -&gt; <code>bar-project</code> in all <code>.md</code> files and <code>.rst</code> files</li>
-<li><code>foo_project</code> -&gt; <code>bar_project</code> in all <code>.py</code> files</li>
-<li><code>foo_project</code> -&gt; <code>bar_project</code> in the directory name</li>
-<li><code>foo_project.py</code> -&gt; <code>bar_project.py</code> in the file name</li>
+<li><a href="../../reference/cli/#sync"><code>pdm sync</code></a> installs packages from the lock file.</li>
+<li><a href="../../reference/cli/#update"><code>pdm update</code></a> will update the lock file, then <code>pdm sync</code>.</li>
+<li><a href="../../reference/cli/#install"><code>pdm install</code></a> will check the project file for changes, update the lock file if needed, then <code>pdm sync</code>.</li>
 </ul>
-<p>Therefore, we don't support name replacement if the import name isn't derived from the project name.</p>
-<h2 id="use-other-project-generators">Use other project generators<a class="headerlink" href="#use-other-project-generators" title="Permanent link">#</a></h2>
-<p>If you are seeking for a more powerful project generator, you can use <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> via <code>--cookiecutter</code> option and <a href="https://github.com/copier-org/copier">copier</a> via <code>--copier</code> option.</p>
-<p>You need to install <code>cookiecutter</code> and <code>copier</code> respectively to use them. You can do this by running <code>pdm self add &lt;package&gt;</code>.
-To use them:</p>
+<p><code>pdm sync</code> also has a few options to manage installed packages:</p>
+<ul>
+<li><code>--clean</code>: will remove packages no longer in the lockfile</li>
+<li><code>--only-keep</code>: only selected packages (using options like <code>-G</code> or <code>--prod</code>) will be kept.</li>
+</ul>
+<h2 id="hashes-in-the-lock-file">Hashes in the lock file<a class="headerlink" href="#hashes-in-the-lock-file" title="Permanent link">#</a></h2>
+<p>By default, <code>pdm install</code> will check if the lock file matches the content of <code>pyproject.toml</code>, this is done by storing a content hash of <code>pyproject.toml</code> in the lock file.</p>
+<p>To check if the hash in the lock file is up-to-date:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>--check
+</code></pre></div></td></tr></table></div>
+<p>If you want to refresh the lock file without changing the dependencies, you can use the <code>--refresh</code> option:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>--refresh
+</code></pre></div></td></tr></table></div>
+<p>This command also refreshes <em>all</em> file hashes recorded in the lock file.</p>
+<h2 id="specify-another-lock-file-to-use">Specify another lock file to use<a class="headerlink" href="#specify-another-lock-file-to-use" title="Permanent link">#</a></h2>
+<p>By default, PDM uses <code>pdm.lock</code> in the current directory. You can specify another lock file with the <code>-L/--lockfile</code> option or the <code>PDM_LOCKFILE</code> environment variable:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>install<span class="w"> </span>--lockfile<span class="w"> </span>my-lockfile.lock
+</code></pre></div></td></tr></table></div>
+<p>This command installs packages from <code>my-lockfile.lock</code> instead of <code>pdm.lock</code>.</p>
+<p>Alternate lock files are helpful when there exist conflicting dependencies for different environments. In this case, if you lock them as a whole, PDM will raise an error. So you have to <a href="../dependency/#select-a-subset-of-dependency-groups-to-install">select a subset of dependency groups</a> and lock them separately.</p>
+<p>For a realistic example, your project depends on a release version of <code>werkzeug</code> and you may want to work with a local in-development copy of it when developing. You can add the following to your <code>pyproject.toml</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>init<span class="w"> </span>--cookiecutter<span class="w"> </span>gh:cjolowicz/cookiecutter-hypermodern-python
-<span class="c1"># or</span>
-pdm<span class="w"> </span>init<span class="w"> </span>--copier<span class="w"> </span>gh:pawamoy/copier-pdm<span class="w"> </span>--UNSAFE
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">[project]</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.7&quot;</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;werkzeug&quot;</span><span class="p">]</span>
+
+<span class="k">[tool.pdm.dev-dependencies]</span>
+<span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;werkzeug @ file:///${PROJECT_ROOT}/dev/werkzeug&quot;</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
+<p>Then, run <code>pdm lock</code> with different options to generate lockfiles for different purposes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Lock default + dev, write to pdm.lock</span>
+<span class="c1"># with the local copy of werkzeug pinned.</span>
+pdm<span class="w"> </span>lock
+<span class="c1"># Lock default, write to pdm.prod.lock</span>
+<span class="c1"># with the release version of werkzeug pinned.</span>
+pdm<span class="w"> </span>lock<span class="w"> </span>--prod<span class="w"> </span>-L<span class="w"> </span>pdm.prod.lock
+</code></pre></div></td></tr></table></div>
+<p>Check the <code>metadata.groups</code> field in the lockfile to see which groups are included.</p>
+<h2 id="option-to-not-write-lock-file">Option to not write lock file<a class="headerlink" href="#option-to-not-write-lock-file" title="Permanent link">#</a></h2>
+<p>Sometimes you want to add or update dependencies without updating the lock file, or you don't want to generate <code>pdm.lock</code>, you can use the <code>--frozen-lockfile</code> option:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>add<span class="w"> </span>--frozen-lockfile<span class="w"> </span>flask
+</code></pre></div></td></tr></table></div>
+<p>In this case, the lock file, if existing, will become read-only, no write operation will be performed on it.
+However, dependency resolution step will still be performed if needed.</p>
+<h2 id="lock-strategies">Lock strategies<a class="headerlink" href="#lock-strategies" title="Permanent link">#</a></h2>
+<p>Currently, we support three flags to control the locking behavior: <code>cross_platform</code>, <code>static_urls</code> and <code>direct_minimal_versions</code>, with the meanings as follows.
+You can pass one or more flags to <code>pdm lock</code> by <code>--strategy/-S</code> option, either by giving a comma-separated list or by passing the option multiple times.
+Both of these commands function in the same way:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>-S<span class="w"> </span>cross_platform,static_urls
+pdm<span class="w"> </span>lock<span class="w"> </span>-S<span class="w"> </span>cross_platform<span class="w"> </span>-S<span class="w"> </span>static_urls
+</code></pre></div></td></tr></table></div>
+<p>The flags will be encoded in the lockfile and get read when you run <code>pdm lock</code> next time. But you can disable flags by prefixing the flag name with <code>no_</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>-S<span class="w"> </span>no_cross_platform
+</code></pre></div></td></tr></table></div>
+<p>This command makes the lockfile not cross-platform.</p>
+<h3 id="cross-platform">Cross platform<a class="headerlink" href="#cross-platform" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.6.0</p>
+</div>
+<p>By default, the generated lockfile is <strong>cross-platform</strong>, which means the current platform isn't taken into account when resolving the dependencies. The result lockfile will contain wheels and dependencies for all possible platforms and Python versions.
+However, sometimes this will result in a wrong lockfile when a release doesn't contain all wheels. To avoid this, you can tell PDM
+to create a lockfile that works for <strong>this platform</strong> only, trimming the wheels not relevant to the current platform. This can be done by passing the <code>--strategy no_cross_platform</code> option to <code>pdm lock</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>--strategy<span class="w"> </span>no_cross_platform
+</code></pre></div></td></tr></table></div>
+<h3 id="static-urls">Static URLs<a class="headerlink" href="#static-urls" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.8.0</p>
+</div>
+<p>By default, PDM only stores the filenames of the packages in the lockfile, which benefits the reusability across different package indexes.
+However, if you want to store the static URLs of the packages in the lockfile, you can pass the <code>--strategy static_urls</code> option to <code>pdm lock</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>--strategy<span class="w"> </span>static_urls
+</code></pre></div></td></tr></table></div>
+<p>The settings will be saved and remembered for the same lockfile. You can also pass <code>--strategy no_static_urls</code> to disable it.</p>
+<h3 id="direct-minimal-versions">Direct minimal versions<a class="headerlink" href="#direct-minimal-versions" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.10.0</p>
+</div>
+<p>When it is enabled by passing <code>--strategy direct_minimal_versions</code>, dependencies specified in the <code>pyproject.toml</code> will be resolved to the minimal versions available, rather than the latest versions. This is useful when you want to test the compatibility of your project within a range of dependency versions.</p>
+<p>For example, if you specified <code>flask&gt;=2.0</code> in the <code>pyproject.toml</code>, <code>flask</code> will be resolved to version <code>2.0.0</code> if there is no other compatibility issue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Version constraints in package dependencies are not future-proof. If you resolve the dependencies to the minimal versions, there will likely be backwards-compatibility issues.
+For example, <code>flask==2.0.0</code> requires <code>werkzeug&gt;=2.0</code>, but in fact, it can not work with <code>Werkzeug 3.0.0</code>, which is released 2 years after it.</p>
+</div>
+<h3 id="inherit-the-metadata-from-parents">Inherit the metadata from parents<a class="headerlink" href="#inherit-the-metadata-from-parents" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.11.0</p>
+</div>
+<p>Previously, the <code>pdm lock</code> command would record package metadata as it is. When installing, PDM would start from the top requirements and traverse down to the leaf node of the dependency tree. It would then evaluate any marker it encounters against the current environment. If a marker is not satisfied, the package would be discarded. In other words, we need an additional "resolution" step in installation.</p>
+<p>When the <code>inherit_metadata</code> strategy is enabled, PDM will inherit and merge environment markers from a package's ancestors. These markers are then encoded in the lockfile during locking, resulting in faster installations. This has been enabled by default from version <code>2.11.0</code>, to disable this strategy in the config, use <code>pdm config strategy.inherit_metadata false</code>.</p>
+<h3 id="exclude-packages-newer-than-specific-date">Exclude packages newer than specific date<a class="headerlink" href="#exclude-packages-newer-than-specific-date" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Added in version 2.13.0</p>
+</div>
+<p>You can exclude packages that are newer than a specified date by passing the <code>--exclude-newer</code> option to <code>pdm lock</code>. This is useful when you want to lock the dependencies to a specific date, for example, to ensure reproducibility of the build.</p>
+<p>The date may be specified as a RFC 3339 timestamp (e.g., <code>2006-12-02T02:07:43Z</code>) or UTC date in the same format (e.g., <code>2006-12-02</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span>lock<span class="w"> </span>--exclude-newer<span class="w"> </span><span class="m">2024</span>-01-01
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The package index must support the <code>upload-time</code> field as specified in <a href="https://peps.python.org/pep-0700/">PEP 700</a>. If the field is not present for a given distribution, the distribution will be treated as unavailable.</p>
+</div>
+<h2 id="set-acceptable-format-for-locking-or-installing">Set acceptable format for locking or installing<a class="headerlink" href="#set-acceptable-format-for-locking-or-installing" title="Permanent link">#</a></h2>
+<p>If you want to control the format(binary/sdist) of the packages, you can set the env vars <code>PDM_NO_BINARY</code> and <code>PDM_ONLY_BINARY</code>.</p>
+<p>Each env var is a comma-separated list of package name. You can set it to <code>:all:</code> to apply to all packages. For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code># No binary for werkzeug will be locked nor used for installation
+PDM_NO_BINARY=werkzeug pdm add flask
+# Only binaries will be locked in the lock file
+PDM_ONLY_BINARY=:all: pdm lock
+# No binaries will be used for installation
+PDM_NO_BINARY=:all: pdm install
+# Prefer binary distributions and even if sdist with higher version is available
+PDM_PREFER_BINARY=flask pdm install
+</code></pre></div></td></tr></table></div>
+<h2 id="allow-prerelease-versions-to-be-installed">Allow prerelease versions to be installed<a class="headerlink" href="#allow-prerelease-versions-to-be-installed" title="Permanent link">#</a></h2>
+<p>Include the following setting in <code>pyproject.toml</code> to enable:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">[tool.pdm.resolution]</span>
+<span class="n">allow-prereleases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="solve-the-locking-failure">Solve the locking failure<a class="headerlink" href="#solve-the-locking-failure" title="Permanent link">#</a></h2>
+<p>If PDM is not able to find a resolution to satisfy the requirements, it will raise an error. For example,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span><span class="nv">django</span><span class="o">==</span><span class="m">3</span>.1.4<span class="w"> </span><span class="s2">&quot;asgiref&lt;3&quot;</span>
+...
+🔒<span class="w"> </span>Lock<span class="w"> </span>failed
+Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>resolution<span class="w"> </span><span class="k">for</span><span class="w"> </span>asgiref<span class="w"> </span>because<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>conflicts:
+<span class="w">  </span>asgiref&lt;<span class="m">3</span><span class="w"> </span><span class="o">(</span>from<span class="w"> </span>project<span class="o">)</span>
+<span class="w">  </span>asgiref&lt;<span class="m">4</span>,&gt;<span class="o">=</span><span class="m">3</span>.2.10<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>&lt;Candidate<span class="w"> </span>django<span class="w"> </span><span class="m">3</span>.1.4<span class="w"> </span>from<span class="w"> </span>https://pypi.org/simple/django/&gt;<span class="o">)</span>
+To<span class="w"> </span>fix<span class="w"> </span>this,<span class="w"> </span>you<span class="w"> </span>could<span class="w"> </span>loosen<span class="w"> </span>the<span class="w"> </span>dependency<span class="w"> </span>version<span class="w"> </span>constraints<span class="w"> </span><span class="k">in</span><span class="w"> </span>pyproject.toml.<span class="w"> </span>If<span class="w"> </span>that<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>possible,<span class="w"> </span>you<span class="w"> </span>could<span class="w"> </span>also<span class="w"> </span>override<span class="w"> </span>the<span class="w"> </span>resolved<span class="w"> </span>version<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span><span class="o">[</span>tool.pdm.resolution.overrides<span class="o">]</span><span class="sb">`</span><span class="w"> </span>table.
+</code></pre></div></td></tr></table></div>
+<p>You can either change to a lower version of <code>django</code> or remove the upper bound of <code>asgiref</code>. But if it is not eligible for your project, you can try <a href="../config/#override-the-resolved-package-versions">overriding the resolved package versions</a> or even <a href="../config/#exclude-specific-packages-and-their-dependencies-from-the-lock-file">don't lock that specific package</a> in <code>pyproject.toml</code>.</p>
+<h2 id="export-locked-packages-to-alternative-formats">Export locked packages to alternative formats<a class="headerlink" href="#export-locked-packages-to-alternative-formats" title="Permanent link">#</a></h2>
+<p>You can export the <code>pdm.lock</code> file to other formats, which will simplify the CI flow or image building process. At present, only the <code>requirements.txt</code> format is supported.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pdm<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-o<span class="w"> </span>requirements.txt
+</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also run <code>pdm export</code> with a <a href="../advanced/#hooks-for-pre-commit"><code>.pre-commit</code> hook</a>.</p>
+</div>
 
 
 
